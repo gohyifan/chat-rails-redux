@@ -11,9 +11,9 @@ class MessageList extends Component {
     this.fetchMessages();
   }
 
-  componentDidMount() {
-    this.refresher = setInterval(this.fetchMessages, 5000);
-  }
+  // componentDidMount() {
+  //   this.refresher = setInterval(this.fetchMessages, 5000);
+  // }
 
   componentDidUpdate() {
     this.list.scrollTop = this.list.scrollHeight;
@@ -40,7 +40,7 @@ class MessageList extends Component {
             })
           }
         </div>
-        <MessageForm />
+        <MessageForm selectedChannel={this.props.selectedChannel} />
       </div>
     );
   }
@@ -48,8 +48,7 @@ class MessageList extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages,
-    selectedChannel: state.selectedChannel
+    messages: state.messages
   };
 }
 
